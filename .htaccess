@@ -1,0 +1,12 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# don't touch existing folders/files
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# your mess here
+
+RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]
+
